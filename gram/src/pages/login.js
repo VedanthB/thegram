@@ -25,7 +25,7 @@ export default function Login() {
       </div>
 
       <div className='flex w-2/5 flex-col'>
-         <div className='flex flex-col items-center bg-white p-4 border border-grey-primary mb-4 '>
+         <div className='flex flex-col items-center bg-white p-4 border border-grey-primary mb-4 rounded '>
           <h1 className='flex justify-center w-full'>
               <img src='/images/logo.png' alt='logo' className='mt-2 w-6/12 mb-4 ' />
           </h1>
@@ -52,14 +52,14 @@ export default function Login() {
                <button
                disabled={isInvalid}
                type='submit'
-               className={`bg-blue-500 w-full text-white  rounded h-8 font-bold ${isInvalid && 'opacity-50'}`}
+               className={`bg-blue-medium w-full text-white  rounded h-8 font-bold ${isInvalid && 'opacity-50'}`}
                >
                 Log In
                </button>
           </form>
         </div>
 
-        <div className="flex justify-center items-center flex-col w-full bg-white p-4 border border-grey-primary" >
+        <div className="flex justify-center items-center flex-col w-full bg-white p-4 border border-grey-primary rounded " >
             <p>Dont have an Account? {` `}
               <Link to='/signup' className='font-bold text-blue-medium'>
                   Sign up
