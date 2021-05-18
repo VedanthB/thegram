@@ -19,7 +19,7 @@ module.exports = {
       }
     },
     red: {
-      primary: '#ed4956' 
+      primary: '#ed4956'
     }
   }
 };
