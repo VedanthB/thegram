@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
-import { firebase, FieldValue } from './lib/firebase';
+// eslint-disable-next-line no-unused-vars
+import { firebase, FieldValue } from '../lib/firebase';
 
 export async function doesUsernameExist(username) {
   const result = await firebase
