@@ -2,6 +2,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
+import * as ROUTES from '../constants/routes'
 
 export default function Login() {
   const history = useHistory();
@@ -13,7 +14,18 @@ export default function Login() {
   const [error, setError] = useState('');
   const isInvalid = password === '' || emailAddress === '';
 
-  const handleLogin = () => {};
+  const handleLogin = async (e) => {
+     e.preventDefault();
+      
+     try {
+      await firebase.auth().signInWithEmailAndPassword(emailAddress, password);
+         history.push(ROUTES.DASHBOARD)
+     } catch (error) {
+         setPassword('')
+         setEmailAddress('')
+         setError(error.message)
+     }
+  };
 
   useEffect(() => {
     document.title = 'Login - OG Gram';
@@ -30,7 +42,7 @@ export default function Login() {
               <img src='/images/logo.png' alt='logo' className='mt-2 w-6/12 mb-4 ' />
           </h1>
 
-          {error && <p className='mb-4 text-xs text-red-primary'>{error}</p> }
+          {error && <p className='mb-4 text-xs text-red-primary '>{error}</p> }
 
           <form onSubmit={handleLogin} method='POST'>
               <input
@@ -67,12 +79,13 @@ export default function Login() {
              </p>
         </div>
       </div>
-    </div>
+    </div> 
   );
 }
 
  // TODO
-   
+
+// text-blue-medium -> hex value   
 // text-red-primary -> hex value
 // text-grey-base  -> hex value
 // border-grey-primary -> hex value

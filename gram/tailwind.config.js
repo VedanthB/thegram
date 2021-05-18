@@ -17,6 +17,9 @@ module.exports = {
         background: '#fafafa',
         primary: '#dbdbdb'
       }
+    },
+    red: {
+      primary: '#ed4956' 
     }
   }
 };
