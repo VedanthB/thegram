@@ -5,7 +5,7 @@ import User from './user';
 
 const Sidebar = () => {
   // eslint-disable-next-line prettier/prettier
-  const { user:{ username, fullName, userId, following }} = useUser();
+  const { user:{ docId, username, fullName, userId, following }} = useUser();
   // const x = useUser();
 
   // console.log(x);
@@ -14,7 +14,7 @@ const Sidebar = () => {
   return (
     <div className="p-4">
       <User username={username} fullName={fullName} />
-      <Suggestions userId={userId} following={following} />
+      <Suggestions userId={userId} following={following} loggedInUserDocId={docId} />
     </div>
   );
 };
