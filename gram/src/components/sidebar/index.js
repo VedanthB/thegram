@@ -1,8 +1,9 @@
+import { memo } from 'react';
 import useUser from '../../hooks/use-user';
 import Suggestion from './suggestions';
 import User from './user';
 
-export default function Sidebar() {
+const Sidebar = () => {
   // eslint-disable-next-line prettier/prettier
   const { user:{ username, fullName, userId }} = useUser();
   // const x = useUser();
@@ -16,4 +17,8 @@ export default function Sidebar() {
       <Suggestion userId={userId} />
     </div>
   );
-}
+};
+
+export default memo(Sidebar);
+
+Sidebar.whyDidYouRender = true;
