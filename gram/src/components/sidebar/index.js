@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import useUser from '../../hooks/use-user';
-import Suggestion from './suggestions';
+import Suggestions from './suggestions';
 import User from './user';
 
 const Sidebar = () => {
   // eslint-disable-next-line prettier/prettier
-  const { user:{ username, fullName, userId }} = useUser();
+  const { user:{ username, fullName, userId, following }} = useUser();
   // const x = useUser();
 
   // console.log(x);
@@ -14,7 +14,7 @@ const Sidebar = () => {
   return (
     <div className="p-4">
       <User username={username} fullName={fullName} />
-      <Suggestion userId={userId} />
+      <Suggestions userId={userId} following={following} />
     </div>
   );
 };

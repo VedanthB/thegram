@@ -17,5 +17,6 @@ export default function useUser() {
     }
   }, [user]);
 
+  // console.log(activeUser);
   return { user: activeUser };
 }
