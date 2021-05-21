@@ -26,7 +26,7 @@ export default function usePhotos() {
 
     console.log(userId);
     getTimelinePhotos();
-  }, []);
+  }, [userId]);
 
   return { photos };
 }
