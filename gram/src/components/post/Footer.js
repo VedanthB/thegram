@@ -7,7 +7,7 @@ export default function Footer({ caption, username }) {
       <span>{caption}</span>
     </div>
   );
-} 
+}
 
 Footer.propTypes = {
   caption: PropTypes.string.isRequired,
