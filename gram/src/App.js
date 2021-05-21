@@ -4,6 +4,7 @@ import * as ROUTES from './constants/routes';
 import UserContext from './context/user';
 import useAuthListener from './hooks/use-auth-listener';
 import ProtectedRoute from './helpers/protected.route';
+import IsUserLoggedIn from './helpers/is-usr-logged-in';
 
 // eslint-disable-next-line import/no-unresolved
 const Login = lazy(() => import('./pages/login'));
@@ -19,8 +20,14 @@ function App() {
       <Router>
         <Suspense fallback={<p>Loading......</p>}>
           <Switch>
-            <Route path={ROUTES.LOGIN} component={Login} />
-            <Route path={ROUTES.SIGN_UP} component={SignUp} />
+            <IsUserLoggedIn loggedInPath={ROUTES.DASHBOARD} path={ROUTES.LOGIN} user={user}>
+              <Login />
+            </IsUserLoggedIn>
+
+            <IsUserLoggedIn loggedInPath={ROUTES.DASHBOARD} path={ROUTES.SIGN_UP} user={user}>
+              <SignUp />
+            </IsUserLoggedIn>
+            <Route path={ROUTES.PROFILE} component={Profile} />
             <ProtectedRoute path={ROUTES.DASHBOARD} user={user} exact>
               <Dashboard />
             </ProtectedRoute>
